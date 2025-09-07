@@ -120,6 +120,7 @@ const loginUser = async (dto: LoginDto) => {
     throw new CustomApiError(
       "Login failed",
       500,
+      err,
       ErrorType.InternalServerError
     );
   }

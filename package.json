@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.585.0",
+    "@aws-sdk/client-secrets-manager": "^3.883.0",
     "@aws-sdk/lib-dynamodb": "^3.585.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/express": "^5.0.3",

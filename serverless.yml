@@ -10,6 +10,7 @@ provider:
   name: aws
   runtime: nodejs20.x
   stage: dev
+  region: us-east-1
   iam:
     role:
       statements:
@@ -24,8 +25,14 @@ provider:
           Resource:
             - Fn::GetAtt: [UsersTable, Arn]
             - Fn::Sub: ${UsersTable.Arn}/index/EmailIndex
+        - Effect: Allow
+          Action:
+            - secretsmanager:GetSecretValue
+          Resource: "arn:aws:secretsmanager:us-east-1:053787343068:secret:auth-service/jwt-secret-*"
   environment:
     USERS_TABLE: ${param:tableName}
+    JWT_SECRET_NAME: auth-service/jwt-secret-v2
+    NODE_ENV: ${self:provider.stage}
 
 functions:
   api:
@@ -39,7 +46,6 @@ functions:
       - http:
           path: /
           method: any
-  
 
 resources:
   Resources:

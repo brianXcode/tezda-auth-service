@@ -69,7 +69,7 @@ A secure, scalable authentication service built with AWS Lambda, API Gateway, an
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/brianXcode/tezda-auth-service.git
    cd auth-service
    ```
 
